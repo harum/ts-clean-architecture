@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TogglePlatform When toString method is called should return toggle platform info 1`] = `"TogglePlatform{platform: mobile_web, active: false}"`;
