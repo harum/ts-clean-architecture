@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ToggleFeature When platform is more then one should be able to delete platform 1`] = `"ToggleFeature{feature: test, platforms: TogglePlatform{platform: desktop, active: false}}"`;
+
+exports[`ToggleFeature When platform is more then one should be able to have correct platforms 1`] = `"ToggleFeature{feature: test, platforms: TogglePlatform{platform: desktop, active: false}, TogglePlatform{platform: mobile, active: false}}"`;
+
+exports[`ToggleFeature When toggle feature is initialized should be able to have initial value 1`] = `"ToggleFeature{feature: test, platforms: }"`;
