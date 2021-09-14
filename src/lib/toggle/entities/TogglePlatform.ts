@@ -1,6 +1,6 @@
-import ToggleAble from './ToggleAble';
+import Toggle from './Toggle';
 
-export default class TogglePlatform extends ToggleAble {
+export default class TogglePlatform extends Toggle {
   #platform: string;
 
   constructor(platform: string) {
@@ -14,10 +14,10 @@ export default class TogglePlatform extends ToggleAble {
 
   toString(): string {
     return (
-      "TogglePlatform{" +
+      'TogglePlatform{' +
       `platform: ${this.#platform}` +
       `, active: ${this.active}` +
-      "}"
+      '}'
     );
   }
 }

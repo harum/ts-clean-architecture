@@ -1,11 +1,11 @@
-import ToggleAble from './ToggleAble';
+import Toggle from './Toggle';
 import TogglePlatform from './TogglePlatform';
 
 describe('TogglePlatform', () => {
   describe('When initialize the class', () => {
-    it('should be a ToggleAble', () => {
+    it('should be a Toggle', () => {
       const toggle = new TogglePlatform('mobile_web');
-      expect(toggle instanceof ToggleAble).toBe(true);
+      expect(toggle instanceof Toggle).toBe(true);
     });
 
     it('should be able to specify platform', () => {
