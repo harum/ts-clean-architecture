@@ -1,23 +1,30 @@
 import Toggle from './Toggle';
 
 export default class TogglePlatform extends Toggle {
-  #platform: string;
+  platform: string;
 
-  constructor(platform: string) {
+  constructor(platform = '') {
     super(false);
-    this.#platform = platform;
+    this.platform = platform;
   }
 
-  get platform(): string {
-    return this.#platform;
+  buildFromHash(platformHash: { platform: string; active: boolean }) {
+    this.platform = platformHash.platform;
+    if (platformHash.active) {
+      this.on();
+    } else {
+      this.off();
+    }
   }
 
   toString(): string {
-    return (
-      'TogglePlatform{' +
-      `platform: ${this.#platform}` +
-      `, active: ${this.active}` +
-      '}'
-    );
+    return JSON.stringify(this.toHash());
+  }
+
+  toHash(): { platform: string; active: boolean } {
+    return {
+      platform: this.platform,
+      active: this.active,
+    };
   }
 }
