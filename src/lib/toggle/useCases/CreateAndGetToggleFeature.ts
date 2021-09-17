@@ -9,9 +9,9 @@ export default class CreateAndGetToggleFeature {
     this.repo = repo;
   }
 
-  async perform() {
+  async perform(feature: string) {
     let toggle = new ToggleFeature();
-    toggle.feature = 'red-card';
+    toggle.feature = feature;
 
     const togglePlatform = new TogglePlatform();
     togglePlatform.platform = 'dweb';
@@ -24,7 +24,7 @@ export default class CreateAndGetToggleFeature {
     console.log(toggle.active('dweb'));
     console.log(toggle.toString());
 
-    toggle = await this.repo.find('red-card');
+    toggle = await this.repo.find(feature);
     // eslint-disable-next-line
     console.log(toggle.id);
     console.log(toggle.active('dweb'));

@@ -5,8 +5,9 @@ import CreateAndGetToggleFeature from '../../../lib/toggle/useCases/CreateAndGet
 async function initialize() {
   const repo = new ToggleFeatureLocalStorageRepository();
 
-  const service = new CreateAndGetToggleFeature(repo);
-  service.perform();
+  const createAndGetToggleFeature = new CreateAndGetToggleFeature(repo);
+  createAndGetToggleFeature.perform('red-header');
+  createAndGetToggleFeature.perform('red-footer');
 }
 
 initialize();

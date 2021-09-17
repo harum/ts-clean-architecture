@@ -11,8 +11,9 @@ async function initialize() {
 
   const repo = new ToggleFeatureMysqlRepository(connection);
 
-  const service = new CreateAndGetToggleFeature(repo);
-  service.perform();
+  const createAndGetToggleFeature = new CreateAndGetToggleFeature(repo);
+  createAndGetToggleFeature.perform('red-header');
+  createAndGetToggleFeature.perform('red-footer');
 }
 
 initialize();

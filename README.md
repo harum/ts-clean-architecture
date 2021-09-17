@@ -55,5 +55,7 @@ npm run client:serve
 
 
 ## Resources
+-  [https://guides.hanamirb.org/v1.3/architecture/overview/](https://guides.hanamirb.org/v1.3/architecture/overview/)
+-  [https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html)
 -  [https://www.youtube.com/watch?v=x6C20zhZHw8](https://www.youtube.com/watch?v=x6C20zhZHw8)
 -  [https://clevercoder.net/2018/09/08/clean-architecture-summary-review/](https://clevercoder.net/2018/09/08/clean-architecture-summary-review/)
