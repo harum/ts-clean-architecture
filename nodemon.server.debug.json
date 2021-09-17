@@ -13,5 +13,5 @@
     "NODE_ENV": "development",
     "TS_NODE_PROJECT": "tsconfig.server.json"
   },
-  "exec": "node --inspect --require ts-node/register src/index.ts"
+  "exec": "node --inspect --require ts-node/register src/apps/node-app/index.ts"
 }

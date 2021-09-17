@@ -10,6 +10,10 @@ describe('ToggleFeature', () => {
 
   describe('When toggle feature is initialized', () => {
     it('should be able to have initial value', () => {
+      expect(toggleFeature.toHash()).toMatchSnapshot();
+    });
+
+    it('sould be able to have correct string version', () => {
       expect(toggleFeature.toString()).toMatchSnapshot();
     });
   });
@@ -70,13 +74,17 @@ describe('ToggleFeature', () => {
     });
 
     it('should be able to have correct platforms', () => {
-      expect(toggleFeature.toString()).toMatchSnapshot();
+      expect(toggleFeature.toHash()).toMatchSnapshot();
       expect(toggleFeature.platforms.get('desktop')).toEqual(platform1);
       expect(toggleFeature.platforms.get('mobile')).toEqual(platform2);
     });
 
     it('should be able to delete platform', () => {
       toggleFeature.deletePlatform('mobile');
+      expect(toggleFeature.toHash()).toMatchSnapshot();
+    });
+
+    it('sould be able to have correct string version', () => {
       expect(toggleFeature.toString()).toMatchSnapshot();
     });
   });

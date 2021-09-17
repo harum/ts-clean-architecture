@@ -1,10 +1,12 @@
 import './style.css';
-import User from '../../../lib/user/User';
+import ToggleFeatureLocalStorageRepository from '../../../lib/toggle/repositories/ToggleFeatureLocalStorageRepository';
+import CreateAndGetToggleFeature from '../../../lib/toggle/useCases/CreateAndGetToggleFeature';
 
-const user = new User('John', 'Wick');
-const app = document.querySelector('#app');
+async function initialize() {
+  const repo = new ToggleFeatureLocalStorageRepository();
 
-app.innerHTML = `
-  <h1>Hello ${user.fullName}, welcome to Vite!</h1>
-  <a href="https://vitejs.dev/guide/features.html" target="_blank">Documentation</a>
-`;
+  const service = new CreateAndGetToggleFeature(repo);
+  service.perform();
+}
+
+initialize();

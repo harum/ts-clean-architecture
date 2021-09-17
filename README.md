@@ -6,7 +6,7 @@ learning purposes. You can try using TypeScript on server or client side. Just g
 To run this project locally you will need to have:
 - Install [Node.js](https://nodejs.org/en/)
 
-# Getting started
+## Getting started
 - Clone the repository
 ```
 git clone --depth=1 https://github.com/harum/typescript-template.git <project_name>
@@ -17,7 +17,7 @@ cd <project_name>
 npm install
 ```
 
-# Project Structure
+## Project Structure
 ```
 src/
 ├─ lib/               # all core businnes logic of your app
@@ -26,7 +26,7 @@ src/
 │  ├─ web-client      # specific implementation for client side code
 ```
 
-# Run your code
+## Run your code
 Run node-app (server side code)
 ```
 npm run node-app:dev
@@ -52,3 +52,8 @@ Build and server client code
 npm run client:build
 npm run client:serve
 ```
+
+
+## Resources
+-  [https://www.youtube.com/watch?v=x6C20zhZHw8](https://www.youtube.com/watch?v=x6C20zhZHw8)
+-  [https://clevercoder.net/2018/09/08/clean-architecture-summary-review/](https://clevercoder.net/2018/09/08/clean-architecture-summary-review/)

@@ -1,6 +1,18 @@
-import User from '../../lib/user/User';
+import mysql from 'mysql2/promise';
+import ToggleFeatureMysqlRepository from '../../lib/toggle/repositories/ToggleFeatureMysqlRepository';
+import CreateAndGetToggleFeature from '../../lib/toggle/useCases/CreateAndGetToggleFeature';
 
-const user = new User('John', 'Wick');
+async function initialize() {
+  const connection = await mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    database: 'test_toggle',
+  });
 
-// eslint-disable-next-line
-console.log(user.fullName);
+  const repo = new ToggleFeatureMysqlRepository(connection);
+
+  const service = new CreateAndGetToggleFeature(repo);
+  service.perform();
+}
+
+initialize();
