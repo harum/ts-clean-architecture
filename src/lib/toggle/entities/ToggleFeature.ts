@@ -2,8 +2,8 @@ import IToggle from './IToggle';
 import TogglePlatform from './TogglePlatform';
 import IToggleFeature from './IToggleFeature';
 import IToggleFeatureRepository from '../repositories/IToggleFeatureRepository';
-import ToggleFeatureHash from './ToggleFeatureHash';
-import TogglePlatformHash from './TogglePlatformHash';
+import DSToggleFeature from './DSToggleFeature';
+import DSTogglePlatform from './DSTogglePlatform';
 
 export default class ToggleFeature implements IToggleFeature {
   platforms = new Map<string, TogglePlatform>();
@@ -49,11 +49,11 @@ export default class ToggleFeature implements IToggleFeature {
     this.platforms.delete(platform);
   }
 
-  buildFromHash(featureHash: ToggleFeatureHash) {
+  buildFromHash(featureHash: DSToggleFeature) {
     this.feature = featureHash.feature;
 
     featureHash.platforms.forEach(
-      ([key, platform]: [string, TogglePlatformHash]) => {
+      ([key, platform]: [string, DSTogglePlatform]) => {
         const togglePlatform = new TogglePlatform(key);
         togglePlatform.buildFromHash(platform);
         this.addPlatform(togglePlatform);
@@ -61,8 +61,8 @@ export default class ToggleFeature implements IToggleFeature {
     );
   }
 
-  toHash(): ToggleFeatureHash {
-    const platformTupples: [string, TogglePlatformHash][] = [];
+  toHash(): DSToggleFeature {
+    const platformTupples: [string, DSTogglePlatform][] = [];
     for (const [key, value] of this.platforms.entries()) {
       platformTupples.push([key, value.toHash()]);
     }

@@ -1,5 +1,5 @@
 import Toggle from './Toggle';
-import TogglePlatformHash from './TogglePlatformHash';
+import DSTogglePlatform from './DSTogglePlatform';
 
 export default class TogglePlatform extends Toggle {
   platform: string;
@@ -9,7 +9,7 @@ export default class TogglePlatform extends Toggle {
     this.platform = platform;
   }
 
-  buildFromHash(platformHash: TogglePlatformHash) {
+  buildFromHash(platformHash: DSTogglePlatform) {
     this.platform = platformHash.platform;
     if (platformHash.active) {
       this.on();
@@ -18,7 +18,7 @@ export default class TogglePlatform extends Toggle {
     }
   }
 
-  toHash(): TogglePlatformHash {
+  toHash(): DSTogglePlatform {
     return {
       platform: this.platform,
       active: this.active,
