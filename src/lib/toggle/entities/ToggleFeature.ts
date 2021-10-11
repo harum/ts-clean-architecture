@@ -1,11 +1,11 @@
-import ToggleAble from './ToggleAble';
+import IToggle from './IToggle';
 import TogglePlatform from './TogglePlatform';
-import ToggleAbleFeature from './ToggleAbleFeature';
+import IToggleFeature from './IToggleFeature';
 import IToggleFeatureRepository from '../repositories/IToggleFeatureRepository';
 import ToggleFeatureHash from './ToggleFeatureHash';
 import TogglePlatformHash from './TogglePlatformHash';
 
-export default class ToggleFeature implements ToggleAbleFeature {
+export default class ToggleFeature implements IToggleFeature {
   platforms = new Map<string, TogglePlatform>();
   feature: string;
   id: number;

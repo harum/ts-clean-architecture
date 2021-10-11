@@ -1,4 +1,4 @@
-export default interface ToggleAble {
+export default interface IToggle {
   active: boolean;
   toggle: () => void;
   on: () => void;

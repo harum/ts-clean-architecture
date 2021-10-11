@@ -1,6 +1,6 @@
-import ToggleAble from './ToggleAble';
+import IToggle from './IToggle';
 
-export default class Toggle implements ToggleAble {
+export default class Toggle implements IToggle {
   #active: boolean;
 
   constructor(active = false) {

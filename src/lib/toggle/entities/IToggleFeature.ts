@@ -1,6 +1,6 @@
 import TogglePlatform from './TogglePlatform';
 
-export default interface ToggleAbleFeature {
+export default interface IToggleFeature {
   active: (platform: string) => boolean;
   toggle: (platform: string) => void;
   on: (platform: string) => void;
