@@ -9,7 +9,7 @@ export default class CreateAndGetToggleFeature {
     this.repo = repo;
   }
 
-  async perform(feature: string) {
+  async perform(feature: string): Promise<ToggleFeature> {
     let toggle = new ToggleFeature();
     toggle.feature = feature;
 
@@ -29,5 +29,7 @@ export default class CreateAndGetToggleFeature {
     console.log(toggle.id);
     console.log(toggle.active('dweb'));
     console.log(toggle.toString());
+
+    return toggle;
   }
 }

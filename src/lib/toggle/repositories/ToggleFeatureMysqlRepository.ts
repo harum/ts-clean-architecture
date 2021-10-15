@@ -11,6 +11,22 @@ export default class ToggleFeatureMysqlRepository
     this.db = dbConnection;
   }
 
+  async findAll(limit = 10): Promise<Array<ToggleFeature>> {
+    const [rows] = await this.db.execute(
+      'SELECT * FROM `toggle_features` LIMIT ?',
+      [limit],
+    );
+
+    return rows.map((row: any) => {
+      const toggleFeature = new ToggleFeature();
+      const rawInfo = JSON.parse(row.info);
+      toggleFeature.id = row.id;
+      toggleFeature.buildFromHash(rawInfo);
+
+      return toggleFeature;
+    });
+  }
+
   async find(feature: string): Promise<ToggleFeature> {
     const [rows] = await this.db.execute(
       'SELECT * FROM `toggle_features` WHERE `feature` = ?',

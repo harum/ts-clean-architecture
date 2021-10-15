@@ -5,6 +5,14 @@ import IToggleFeatureRepository from './IToggleFeatureRepository';
 export default class ToggleFeatureLocalStorageRepository
   implements IToggleFeatureRepository
 {
+  async findAll(limit = 10): Promise<Array<ToggleFeature>> {
+    const rowInfo = JSON.parse(localStorage.getItem('df') || '');
+    const toggleFeature = new ToggleFeature();
+    toggleFeature.buildFromHash(rowInfo);
+
+    return [toggleFeature];
+  }
+
   async find(feature: string): Promise<ToggleFeature> {
     const rowInfo = JSON.parse(localStorage.getItem(feature) || '');
     const toggleFeature = new ToggleFeature();
