@@ -1,41 +1,37 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './App.css'
+import ToggleFeatureLocalStorageRepository from '../../../lib/toggle/repositories/ToggleFeatureLocalStorageRepository';
+import IToggleFeatureRepository from '../../../lib/toggle/repositories/IToggleFeatureRepository';
+import GetToggleFeatures from '../../../lib/toggle/useCases/GetToggleFeatures';
+import ToggleFeature from '../../../lib/toggle/entities/ToggleFeature';
 
 function App() {
-  const [count, setCount] = useState(0)
+  let repo: IToggleFeatureRepository;
+  let getToggleFeatures: GetToggleFeatures;
+
+  const defaultToggles: Array<ToggleFeature> = [];
+  const [toggles, setToggles] = useState(defaultToggles)
+
+  async function fetchToggles() {
+    const togglesResponse = await getToggleFeatures.perform();
+    console.log(togglesResponse);
+    setToggles(togglesResponse);
+  }
+
+  useEffect(() => {
+    console.log('useEffect');
+    repo = new ToggleFeatureLocalStorageRepository();
+    getToggleFeatures = new GetToggleFeatures(repo);
+    fetchToggles();
+  }, []);
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>Hello Vite + React!</p>
-        <p>
-          <button type="button" onClick={() => setCount((count) => count + 1)}>
-            count is: {count}
-          </button>
-        </p>
-        <p>
-          Edit <code>App.tsx</code> and save to test HMR updates.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-          {' | '}
-          <a
-            className="App-link"
-            href="https://vitejs.dev/guide/features.html"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Vite Docs
-          </a>
-        </p>
-      </header>
+    <div className="Toggles">
+      {
+        toggles.map(toggle => (
+          <p>{ toggle.feature }</p>
+        ))
+      }
     </div>
   )
 }
